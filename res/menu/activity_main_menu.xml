@@ -1,0 +1,50 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:showAsAction="always" >
+        <menu>
+            <item 
+                android:id="@+id/action_preview_resolutions"
+                android:title="@string/preview_resolution"
+                android:showAsAction="always">
+                <menu
+                    android:id="@+id/submenu_preview_resolutions">
+                    <item 
+                        android:id="@+id/placeholderItem"/>
+                    <!--  Filled Programmically, placeholder Required  -->
+                </menu>
+            </item>
+            <item 
+                android:id="@+id/action_picture_resolutions"
+                android:title="@string/picture_resolution"
+                android:showAsAction="always">
+                <menu
+                    android:id="@+id/submenu_picture_resolutions">
+                    <item 
+                        android:id="@+id/placeholderItem2"/>
+                    <!--  Filled Programmically, placeholder Required  -->
+                </menu>
+            </item>
+        </menu>
+	 </item>
+     <item 
+        android:id="@+id/action_camera" 
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="@string/action_camera"></item>
+    <item 
+        android:id="@+id/action_matching" 
+        android:showAsAction="ifRoom"
+        android:title="@string/action_matching"></item>
+    <item 
+        android:id="@+id/action_keypoints" 
+        android:showAsAction="ifRoom"
+        android:title="@string/action_keypoints"></item>
+    <item
+     	android:id="@+id/action_compass"
+     	android:showAsAction="always"
+     	android:title="@string/action_hide_compass"></item>
+   
+</menu>
