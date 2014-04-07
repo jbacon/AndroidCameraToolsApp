@@ -9,6 +9,8 @@
 
 package com.project.cameratoolsapp;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -112,17 +114,26 @@ public class PictureActivity extends Activity{
 		alert.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(final DialogInterface dialog, final int which) {
-				//This does work
+				//This deletes from Gallery
 				int rows = getContentResolver().delete(photoUri, null, null);
 				if(rows == 0) {
-					Log.e(TAG, "Failed to delete photoUri");
+					Log.e(TAG, "Failed to delete photo from gallery");
 				}
 				else {
-					Log.e(TAG, "Deleted photoUri");
+					Log.e(TAG, "Deleted photo from gallery");
 				}
 				//getContentResolver().delete(Images.Media.EXTERNAL_CONTENT_URI,
 				//		MediaStore.MediaColumns.DATA + "=?",
 				//		new String[] { photoPath });
+				File photoFile = new File(photoPath);
+				if(photoFile.exists()) {
+					if(photoFile.delete())
+						Log.e(TAG, "Photo file deleted");
+					else
+						Log.i(TAG, "Photo file not deleted");
+				}
+				else
+					Log.e(TAG, "Photo file does not exist");
 				finish();
 			}
 		});
